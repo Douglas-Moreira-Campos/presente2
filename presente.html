@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Para Você 💖</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png">
+
+	<meta name="theme-color" content="#ff69b4">
+
+  <style>
+    body {
+      background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+      font-family: 'Dancing Script', cursive;
+      text-align: center;
+      padding-top: 15vh;
+      overflow: hidden;
+      position: relative;
+    }
+    h1 {
+      font-size: 3.5rem;
+      color: #d63384;
+    }
+    p {
+      font-size: 1.8rem;
+      color: #6c757d;
+      margin: 30px auto;
+      max-width: 700px;
+    }
+    .btn-love {
+      background-color: #ff69b4;
+      border: none;
+      font-size: 1.3rem;
+    }
+    .btn-love:hover {
+      background-color: #ff85c1;
+    }
+
+    /* Corações */
+    .heart {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      background-color: red;
+      transform: rotate(45deg);
+      animation: float 10s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        top: 100vh;
+        opacity: 1;
+      }
+      100% {
+        top: -10vh;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Feliz dia dos namorados</h1>
+  <p>
+	Desde o momento em que você entrou na minha vida, tudo ficou melhor.
+	Não importa o que aconteça, meu coração sempre vai pertencer a você.
+	Cada dia ao seu lado é uma bênção, e eu agradeço por ter você comigo.
+	Eu prometo ser a melhor pessoa do mundo por você.<br>
+	Eu Te Amo.
+  </p>
+  <button class="btn btn-love px-4 py-2" data-bs-toggle="modal" data-bs-target="#loveModal">Clique aqui</button>
+
+  <!-- Modal com "Te amo" -->
+  <div class="modal fade" id="loveModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-light text-center">
+        <div class="modal-body">
+          <h1 class="text-danger" style="font-size: 3rem;">Te amo ❤️</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Corações animados -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 5 + 5) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 10000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+  <audio id="bg-music" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio HTML5.
+</audio>
+
+<script>
+  // Quando o botão for clicado, toca a música
+  const btn = document.querySelector('[data-bs-toggle="modal"]');
+  const music = document.getElementById("bg-music");
+
+  btn.addEventListener("click", () => {
+    music.play();
+  });
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
